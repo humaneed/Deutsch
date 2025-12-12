@@ -517,19 +517,6 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      position: relative;
-    }
-    
-    .question-card::after {
-      content: '';
-      position: absolute;
-      bottom: 8px;
-      right: 8px;
-      width: 20px;
-      height: 20px;
-      background: var(--color-primary-light);
-      border-radius: 50%;
-      opacity: 0.3;
     }
     
     @media (min-width: 600px) {
@@ -537,13 +524,6 @@
         padding: 28px;
         margin-bottom: 16px;
         min-height: 140px;
-      }
-      
-      .question-card::after {
-        width: 24px;
-        height: 24px;
-        bottom: 10px;
-        right: 10px;
       }
     }
 
@@ -588,12 +568,6 @@
       border-radius: var(--radius-md);
       font-size: 0.8rem;
       font-weight: 600;
-      position: relative;
-    }
-    
-    .skill-badge::before {
-      content: '📚';
-      margin-right: 4px;
     }
 
     .question-text {
@@ -913,611 +887,30 @@
       position: fixed;
       bottom: 15px;
       right: 15px;
-      width: 70px;
-      height: 70px;
+      font-size: 2.5rem;
       cursor: pointer;
       z-index: 100;
-      filter: drop-shadow(0 2px 8px rgba(30, 58, 95, 0.15));
-      transition: transform 0.2s ease, filter 0.2s ease;
+      filter: drop-shadow(0 1px 3px rgba(61, 79, 66, 0.1));
+      transition: var(--transition);
     }
     
     @media (min-width: 600px) {
       .mascot {
         bottom: 20px;
         right: 20px;
-        width: 90px;
-        height: 90px;
+        font-size: 3rem;
       }
     }
 
     .mascot:hover {
-      transform: translateY(-3px);
-      filter: drop-shadow(0 4px 12px rgba(30, 58, 95, 0.25));
-    }
-
-    .mascot:active {
-      transform: translateY(-1px) scale(0.98);
-    }
-
-    .mascot.happy {
-      animation: celebrate 0.5s ease;
-    }
-
-    .mascot.encouraging {
-      animation: encourage 0.6s ease;
-    }
-
-    .mascot.speaking {
-      animation: speak 0.3s ease infinite;
-    }
-
-    .mascot.thinking {
-      animation: think 1s ease infinite;
-    }
-
-    @keyframes celebrate {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      25% { transform: translateY(-8px) rotate(-5deg); }
-      75% { transform: translateY(-8px) rotate(5deg); }
-    }
-
-    @keyframes encourage {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-
-    @keyframes speak {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.02); }
-    }
-
-    @keyframes think {
-      0%, 100% { transform: rotate(0deg); }
-      25% { transform: rotate(-3deg); }
-      75% { transform: rotate(3deg); }
-    }
-
-    .help-button {
-      position: fixed;
-      bottom: 15px;
-      left: 15px;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: var(--color-accent);
-      border: 2px solid var(--color-accent-dark);
-      color: var(--color-surface);
-      font-size: 1.3rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 100;
-      box-shadow: 0 2px 8px rgba(232, 184, 109, 0.3);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    @media (min-width: 600px) {
-      .help-button {
-        bottom: 20px;
-        left: 20px;
-        width: 56px;
-        height: 56px;
-        font-size: 1.5rem;
-      }
-    }
-
-    .help-button:hover {
-      transform: scale(1.1);
-      box-shadow: 0 4px 12px rgba(232, 184, 109, 0.5);
-    }
-
-    .help-button:active {
-      transform: scale(0.95);
-    }
-
-    .hint-panel {
-      position: fixed;
-      bottom: 75px;
-      left: 15px;
-      max-width: 320px;
-      background: var(--color-surface);
-      border: 2px solid var(--color-accent);
-      border-radius: 16px;
-      padding: 16px;
-      box-shadow: 0 4px 16px rgba(61, 79, 66, 0.15);
-      z-index: 99;
-      opacity: 0;
-      transform: translateY(10px) scale(0.95);
-      pointer-events: none;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-
-    @media (min-width: 600px) {
-      .hint-panel {
-        bottom: 85px;
-        left: 20px;
-        max-width: 360px;
-        padding: 20px;
-      }
-    }
-
-    .hint-panel.show {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      pointer-events: all;
-    }
-
-    .hint-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 12px;
-      color: var(--color-accent-dark);
-      font-weight: 700;
-      font-size: 1rem;
-    }
-
-    .hint-content {
-      color: var(--color-text);
-      font-size: 0.9rem;
-      line-height: 1.6;
-      margin-bottom: 12px;
-    }
-
-    .hint-actions {
-      display: flex;
-      gap: 8px;
-      justify-content: flex-end;
-    }
-
-    .hint-btn {
-      padding: 8px 16px;
-      border: 1px solid var(--color-border);
-      border-radius: 8px;
-      background: var(--color-bg);
-      color: var(--color-text);
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .hint-btn:hover {
-      background: var(--color-accent-dark);
-      color: var(--color-surface);
-      border-color: var(--color-accent-dark);
-    }
-
-    .bibleo-avatar {
-      width: 32px;
-      height: 32px;
-      flex-shrink: 0;
-    }
-
-    .action-menu {
-      position: fixed;
-      bottom: 95px;
-      right: 15px;
-      background: var(--color-surface);
-      border: 2px solid var(--color-primary);
-      border-radius: 16px;
-      padding: 8px;
-      box-shadow: 0 4px 16px rgba(61, 79, 66, 0.15);
-      z-index: 101;
-      opacity: 0;
-      transform: translateY(10px) scale(0.95);
-      pointer-events: none;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-      min-width: 200px;
-    }
-
-    @media (min-width: 600px) {
-      .action-menu {
-        bottom: 120px;
-        right: 20px;
-        min-width: 240px;
-      }
-    }
-
-    .action-menu.show {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      pointer-events: all;
-    }
-
-    .action-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 16px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background 0.2s ease;
-      font-size: 0.9rem;
-      color: var(--color-text);
-      font-weight: 500;
-    }
-
-    .action-item:hover {
-      background: var(--color-primary-light);
-    }
-
-    .action-item .icon {
-      font-size: 1.3rem;
-      width: 24px;
-      text-align: center;
-    }
-
-    .action-divider {
-      height: 1px;
-      background: var(--color-border);
-      margin: 4px 0;
-    }
-
-    .mascot-badge {
-      position: absolute;
-      top: -4px;
-      right: -4px;
-      background: #EF4444;
-      color: white;
-      font-size: 0.7rem;
-      font-weight: 700;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid var(--color-bg);
-      opacity: 0;
-      transform: scale(0);
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-
-    .mascot-badge.show {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .quick-stats {
-      position: fixed;
-      top: 20px;
-      right: 15px;
-      background: var(--color-surface);
-      border: 2px solid var(--color-border);
-      border-radius: 12px;
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      z-index: 90;
-      box-shadow: 0 2px 8px rgba(61, 79, 66, 0.08);
-      font-size: 0.85rem;
-      opacity: 0;
-      transform: translateY(-10px);
-      pointer-events: none;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-
-    @media (min-width: 600px) {
-      .quick-stats {
-        right: 20px;
-        padding: 14px 20px;
-        font-size: 0.9rem;
-      }
-    }
-
-    .quick-stats.show {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: all;
-    }
-
-    .quick-stat {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .quick-stat .label {
-      color: var(--color-text-light);
-      font-weight: 500;
-    }
-
-    .quick-stat .value {
-      color: var(--color-primary-dark);
-      font-weight: 700;
-    }
-
-    @media (max-width: 600px) {
-      .quick-stats {
-        top: auto;
-        bottom: 95px;
-        right: auto;
-        left: 15px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-        padding: 10px 12px;
-      }
-      
-      .quick-stat {
-        font-size: 0.8rem;
-      }
-    }
-
-    .speech-bubble {
-      position: fixed;
-      bottom: 95px;
-      right: 15px;
-      max-width: 220px;
-      background: var(--color-surface);
-      border: 2px solid var(--color-primary);
-      border-radius: 16px;
-      padding: 12px 16px;
-      font-size: 0.85rem;
-      color: var(--color-text);
-      box-shadow: 0 4px 16px rgba(61, 79, 66, 0.15);
-      z-index: 99;
-      opacity: 0;
-      transform: translateY(10px) scale(0.95);
-      transition: opacity 0.2s ease, transform 0.2s ease;
-      pointer-events: none;
-      line-height: 1.4;
-      font-weight: 500;
-    }
-    
-    @media (min-width: 600px) {
-      .speech-bubble {
-        bottom: 120px;
-        right: 20px;
-        max-width: 260px;
-        font-size: 0.9rem;
-        padding: 14px 18px;
-      }
-    }
-
-    .speech-bubble.show {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    .speech-bubble::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      right: 20px;
-      width: 0;
-      height: 0;
-      border-left: 8px solid transparent;
-      border-right: 8px solid transparent;
-      border-top: 8px solid var(--color-primary);
-    }
-
-    .speech-bubble::before {
-      content: '';
-      position: absolute;
-      bottom: -6px;
-      right: 21px;
-      width: 0;
-      height: 0;
-      border-left: 7px solid transparent;
-      border-right: 7px solid transparent;
-      border-top: 7px solid var(--color-surface);
-      z-index: 1;
-    }
-
-    .speech-indicator {
-      display: inline-flex;
-      gap: 4px;
-      margin-left: 8px;
-      vertical-align: middle;
-    }
-
-    .speech-indicator span {
-      width: 6px;
-      height: 6px;
-      background: var(--color-primary);
-      border-radius: 50%;
-      animation: speechDot 1.4s ease-in-out infinite;
-    }
-
-    .speech-indicator span:nth-child(2) {
-      animation-delay: 0.2s;
-    }
-
-    .speech-indicator span:nth-child(3) {
-      animation-delay: 0.4s;
-    }
-
-    @keyframes speechDot {
-      0%, 60%, 100% { transform: scale(1); opacity: 0.6; }
-      30% { transform: scale(1.3); opacity: 1; }
+      opacity: 0.8;
     }
 
   </style>
 </head>
 <body>
 
-<div class="quick-stats" id="quickStats">
-  <div class="quick-stat">
-    <span class="label">Streak:</span>
-    <span class="value" id="quickStreak">0</span>
-  </div>
-  <div class="quick-stat">
-    <span class="label">Level:</span>
-    <span class="value" id="quickLevel">1</span>
-  </div>
-  <div class="quick-stat">
-    <span class="label">Aufgaben:</span>
-    <span class="value" id="quickTasks">0</span>
-  </div>
-</div>
-
-<div class="speech-bubble" id="speechBubble">
-  <p class="speech-bubble-text" id="speechText">
-    Hallo! 👋
-    <span class="speech-indicator">
-      <span></span>
-      <span></span>
-      <span></span>
-    </span>
-  </p>
-</div>
-
-<div class="action-menu" id="actionMenu">
-  <div class="action-item" onclick="bibleoExplainTask()">
-    <span class="icon">💡</span>
-    <span>Aufgabe erklären</span>
-  </div>
-  <div class="action-item" onclick="bibleoShowExample()">
-    <span class="icon">📝</span>
-    <span>Beispiel zeigen</span>
-  </div>
-  <div class="action-divider"></div>
-  <div class="action-item" onclick="bibleoAdjustDifficulty('easier')">
-    <span class="icon">⬇️</span>
-    <span>Leichter machen</span>
-  </div>
-  <div class="action-item" onclick="bibleoAdjustDifficulty('harder')">
-    <span class="icon">⬆️</span>
-    <span>Schwerer machen</span>
-  </div>
-  <div class="action-divider"></div>
-  <div class="action-item" onclick="bibleoSkipTask()">
-    <span class="icon">⏭️</span>
-    <span>Aufgabe überspringen</span>
-  </div>
-  <div class="action-item" onclick="toggleQuickStats()">
-    <span class="icon">📊</span>
-    <span>Statistik anzeigen</span>
-  </div>
-</div>
-
-<div class="hint-panel" id="hintPanel">
-  <div class="hint-header">
-    <svg class="bibleo-avatar" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="bookBodyMini" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" style="stop-color:#7BA591;stop-opacity:1" />
-          <stop offset="100%" style="stop-color:#5D8A75;stop-opacity:1" />
-        </linearGradient>
-      </defs>
-      <rect x="68" y="60" width="64" height="80" rx="8" fill="url(#bookBodyMini)" stroke="#3D4F42" stroke-width="2.5"/>
-      <rect x="70" y="62" width="60" height="76" rx="7" fill="#F9F7F4" opacity="0.95"/>
-      <ellipse cx="87" cy="103" rx="6" ry="8" fill="white" stroke="#3D4F42" stroke-width="2"/>
-      <ellipse cx="113" cy="103" rx="6" ry="8" fill="white" stroke="#3D4F42" stroke-width="2"/>
-      <circle cx="87" cy="104" r="4" fill="#3D4F42"/>
-      <circle cx="113" cy="104" r="4" fill="#3D4F42"/>
-      <path d="M 84 117 Q 100 128 116 117" fill="none" stroke="#3D4F42" stroke-width="2.5" stroke-linecap="round"/>
-    </svg>
-    <span id="hintTitle">Bibleo's Tipp</span>
-  </div>
-  <div class="hint-content" id="hintContent">
-    Ich kann dir helfen! Was möchtest du wissen?
-  </div>
-  <div class="hint-actions">
-    <button class="hint-btn" onclick="closeHint()">Verstanden</button>
-  </div>
-</div>
-
-<button class="help-button" id="helpBtn" title="Bibleo um Hilfe fragen">
-  💡
-</button>
-
-<div class="mascot" id="mascot" title="Klick mich für Optionen!">
-  <div class="mascot-badge" id="mascotBadge">!</div>
-  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
-    <defs>
-      <linearGradient id="bookBody" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" style="stop-color:#7BA591;stop-opacity:1" />
-        <stop offset="100%" style="stop-color:#5D8A75;stop-opacity:1" />
-      </linearGradient>
-      <linearGradient id="bookPages" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" style="stop-color:#F9F7F4;stop-opacity:1" />
-        <stop offset="100%" style="stop-color:#E8E4DC;stop-opacity:1" />
-      </linearGradient>
-      <linearGradient id="arms" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" style="stop-color:#A8C9B8;stop-opacity:1" />
-        <stop offset="100%" style="stop-color:#88B894;stop-opacity:1" />
-      </linearGradient>
-      <filter id="softShadow">
-        <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
-        <feOffset dx="0" dy="2" result="offsetblur"/>
-        <feComponentTransfer>
-          <feFuncA type="linear" slope="0.25"/>
-        </feComponentTransfer>
-        <feMerge>
-          <feMergeNode/>
-          <feMergeNode in="SourceGraphic"/>
-        </feMerge>
-      </filter>
-    </defs>
-    
-    <!-- Buch-Körper -->
-    <rect x="68" y="60" width="64" height="80" rx="8" fill="url(#bookBody)" stroke="#3D4F42" stroke-width="2.5" filter="url(#softShadow)"/>
-    
-    <!-- Seiten (hell) -->
-    <rect x="70" y="62" width="60" height="76" rx="7" fill="url(#bookPages)" opacity="0.95"/>
-    
-    <!-- Lesezeichen -->
-    <rect x="98" y="52" width="4" height="20" fill="#E8B86D" rx="2"/>
-    
-    <!-- Seitenlinien -->
-    <line x1="76" y1="75" x2="124" y2="75" stroke="#D4C5B0" stroke-width="1.5" opacity="0.6"/>
-    <line x1="76" y1="82" x2="120" y2="82" stroke="#D4C5B0" stroke-width="1.5" opacity="0.5"/>
-    <line x1="76" y1="89" x2="122" y2="89" stroke="#D4C5B0" stroke-width="1.5" opacity="0.4"/>
-    
-    <!-- Linker Arm -->
-    <g filter="url(#softShadow)">
-      <ellipse cx="48" cy="88" rx="13" ry="20" fill="url(#arms)" stroke="#3D4F42" stroke-width="2.5" transform="rotate(-20 48 88)"/>
-      <circle cx="32" cy="72" r="17" fill="url(#arms)" stroke="#3D4F42" stroke-width="2.5"/>
-      <ellipse cx="32" cy="72" rx="13" ry="15" fill="#C8DDD0" opacity="0.4"/>
-      <line x1="56" y1="93" x2="68" y2="88" stroke="url(#arms)" stroke-width="15" stroke-linecap="round"/>
-    </g>
-    
-    <!-- Rechter Arm -->
-    <g filter="url(#softShadow)">
-      <ellipse cx="152" cy="88" rx="13" ry="20" fill="url(#arms)" stroke="#3D4F42" stroke-width="2.5" transform="rotate(20 152 88)"/>
-      <circle cx="168" cy="72" r="17" fill="url(#arms)" stroke="#3D4F42" stroke-width="2.5"/>
-      <ellipse cx="168" cy="72" rx="13" ry="15" fill="#C8DDD0" opacity="0.4"/>
-      <line x1="144" y1="93" x2="132" y2="88" stroke="url(#arms)" stroke-width="15" stroke-linecap="round"/>
-    </g>
-    
-    <!-- Gesicht -->
-    <!-- Augenbrauen -->
-    <path d="M 82 95 Q 86 93 90 95" stroke="#3D4F42" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-    <path d="M 118 95 Q 114 93 110 95" stroke="#3D4F42" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-    
-    <!-- Augen -->
-    <ellipse cx="87" cy="103" rx="6" ry="8" fill="white" stroke="#3D4F42" stroke-width="2"/>
-    <ellipse cx="113" cy="103" rx="6" ry="8" fill="white" stroke="#3D4F42" stroke-width="2"/>
-    <circle cx="87" cy="104" r="4" fill="#3D4F42"/>
-    <circle cx="113" cy="104" r="4" fill="#3D4F42"/>
-    <circle cx="89" cy="102" r="1.5" fill="white"/>
-    <circle cx="115" cy="102" r="1.5" fill="white"/>
-    
-    <!-- Lächeln -->
-    <path d="M 84 117 Q 100 128 116 117" fill="none" stroke="#3D4F42" stroke-width="2.5" stroke-linecap="round"/>
-    
-    <!-- Wangen (leichte Röte) -->
-    <ellipse cx="78" cy="110" rx="5" ry="3" fill="#E8B86D" opacity="0.3"/>
-    <ellipse cx="122" cy="110" rx="5" ry="3" fill="#E8B86D" opacity="0.3"/>
-    
-    <!-- Beine -->
-    <g filter="url(#softShadow)">
-      <rect x="80" y="140" width="17" height="35" rx="8" fill="url(#arms)" stroke="#3D4F42" stroke-width="2.5"/>
-      <rect x="103" y="140" width="17" height="35" rx="8" fill="url(#arms)" stroke="#3D4F42" stroke-width="2.5"/>
-      <ellipse cx="88.5" cy="175" rx="10" ry="7" fill="url(#arms)" stroke="#3D4F42" stroke-width="2"/>
-      <ellipse cx="111.5" cy="175" rx="10" ry="7" fill="url(#arms)" stroke="#3D4F42" stroke-width="2"/>
-    </g>
-  </svg>
-</div>
-
-<div class="speech-bubble" id="speechBubble">
-  Hallo! Ich bin Bibleo! 📚
-</div>
+<div class="mascot" id="mascot" title="Klick mich!">🦉</div>
 
 <div class="app-wrapper">
   <div class="header">
@@ -1644,7 +1037,7 @@
 
     <div class="action-buttons">
       <button class="btn" id="next">🚀 Neue Aufgabe</button>
-      <button class="btn btn-secondary" id="speakQ" title="Bibleo vorlesen lassen">🔊</button>
+      <button class="btn btn-secondary" id="speakQ">🔊</button>
     </div>
   </div>
 </div>
@@ -2037,57 +1430,6 @@ const totalTasksEl = document.getElementById("totalTasks");
 const challengeMode = document.getElementById("challengeMode");
 const challengeTimer = document.getElementById("challengeTimer");
 const mascot = document.getElementById("mascot");
-const speechBubble = document.getElementById("speechBubble");
-const speechText = document.getElementById("speechText");
-const hintPanel = document.getElementById("hintPanel");
-const hintTitle = document.getElementById("hintTitle");
-const hintContent = document.getElementById("hintContent");
-const helpBtn = document.getElementById("helpBtn");
-const actionMenu = document.getElementById("actionMenu");
-const mascotBadge = document.getElementById("mascotBadge");
-const quickStats = document.getElementById("quickStats");
-const quickStreak = document.getElementById("quickStreak");
-const quickLevel = document.getElementById("quickLevel");
-const quickTasks = document.getElementById("quickTasks");
-
-function showSpeechBubble(text, duration = 3000) {
-  // Update text without indicator
-  const textOnly = text.replace(/<span class="speech-indicator">[\s\S]*?<\/span>/g, '');
-  speechText.innerHTML = textOnly;
-  
-  speechBubble.classList.add('show');
-  mascot.classList.add('speaking');
-  
-  setTimeout(() => {
-    speechBubble.classList.remove('show');
-    mascot.classList.remove('speaking');
-  }, duration);
-}
-
-function bibleoSpeak(text, alsoVoice = true) {
-  showSpeechBubble(text);
-  
-  if (alsoVoice && "speechSynthesis" in window) {
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = "de-DE";
-    if (kidVoice) u.voice = kidVoice;
-    u.rate = 0.82;
-    u.pitch = 0.98;
-    u.volume = 0.9;
-    
-    // Show speaking indicator during speech
-    u.onstart = () => {
-      speechText.innerHTML = text + ' <span class="speech-indicator"><span></span><span></span><span></span></span>';
-    };
-    
-    u.onend = () => {
-      speechText.textContent = text;
-    };
-    
-    speechSynthesis.cancel();
-    speechSynthesis.speak(u);
-  }
-}
 
 let totalTasks = 0;
 let currentStreak = 0;
@@ -2139,11 +1481,6 @@ function updateStats() {
   const progress = Math.min((sessionProgress / sessionGoal) * 100, 100);
   progressFill.style.width = progress + "%";
   progressText.textContent = sessionProgress + " / " + sessionGoal;
-  
-  // Update quick stats if visible
-  if (quickStats && quickStats.classList.contains('show')) {
-    updateQuickStats();
-  }
   
   saveProgress();
 }
@@ -2287,345 +1624,15 @@ challengeMode.onclick = () => {
 };
 
 mascot.onclick = () => {
-  // Toggle action menu
-  if (actionMenu.classList.contains('show')) {
-    actionMenu.classList.remove('show');
-  } else {
-    // Close other panels
-    closeHint();
-    speechBubble.classList.remove('show');
-    
-    // Show action menu
-    actionMenu.classList.add('show');
-    
-    // Auto-close after 10 seconds
-    setTimeout(() => {
-      actionMenu.classList.remove('show');
-    }, 10000);
-  }
+  const messages = [
+    "Super! 🦉",
+    "Weiter so! 🌟",
+    "Du schaffst das! 💪",
+    "Toll! 🏆"
+  ];
+  fb.className = "feedback";
+  fb.textContent = pick(messages);
 };
-
-function celebrateMascot() {
-  mascot.classList.add('happy');
-  const celebrationMessages = [
-    "Super! 🎉",
-    "Toll gemacht! ⭐",
-    "Perfekt! 💫",
-    "Klasse! 🏆"
-  ];
-  showSpeechBubble(pick(celebrationMessages), 2000);
-  setTimeout(() => mascot.classList.remove('happy'), 500);
-  
-  // Check for level up
-  const oldLevel = Math.floor((totalTasks - 1) / 20) + 1;
-  const newLevel = Math.floor(totalTasks / 20) + 1;
-  
-  if (newLevel > oldLevel) {
-    setTimeout(() => {
-      showHint("Level Up! 🎊", `<strong>Herzlichen Glückwunsch!</strong><br>Du hast <strong>Level ${newLevel}</strong> erreicht! 🌟<br><br>Du machst tolle Fortschritte!`);
-      bibleoSpeak("Level Up! Du bist jetzt Level " + newLevel + "!", false);
-      showBadgeNotification();
-    }, 2000);
-  }
-}
-
-let consecutiveWrong = 0;
-
-function encourageMascot() {
-  mascot.classList.add('encouraging');
-  const encouragementMessages = [
-    "Nicht aufgeben! 💪",
-    "Versuch's nochmal! 🎯",
-    "Du schaffst das! ✨",
-    "Weiter so! 📚"
-  ];
-  showSpeechBubble(pick(encouragementMessages), 2500);
-  setTimeout(() => mascot.classList.remove('encouraging'), 600);
-  
-  // Track wrong answers
-  consecutiveWrong++;
-  
-  // After 3 wrong answers, offer help
-  if (consecutiveWrong >= 3) {
-    setTimeout(() => {
-      showHint("Brauchst du Hilfe? 💡", "Du hast ein paar Aufgaben nicht geschafft. Keine Sorge! Klick auf Bibleo und wähle <strong>'Aufgabe erklären'</strong> oder <strong>'Leichter machen'</strong>. Ich helfe dir! 😊");
-      showBadgeNotification();
-      consecutiveWrong = 0; // Reset
-    }, 2000);
-  }
-}
-
-// Hint System
-function showHint(title, content) {
-  hintTitle.textContent = title;
-  hintContent.innerHTML = content;
-  hintPanel.classList.add('show');
-  mascot.classList.add('thinking');
-}
-
-function closeHint() {
-  hintPanel.classList.remove('show');
-  mascot.classList.remove('thinking');
-}
-
-function getContextualHint() {
-  // Basierend auf aktuellem Zustand hilfreiche Tipps geben
-  if (!currentTask) {
-    return {
-      title: "Los geht's! 🚀",
-      content: "Wähle eine <strong>Klassenstufe</strong> und klicke auf <strong>'Neue Aufgabe'</strong> um zu starten!"
-    };
-  }
-  
-  // Tipps basierend auf Klasse
-  const hints = {
-    1: {
-      title: "Tipp für 1. Klasse 📝",
-      content: `
-        <strong>Artikel merken:</strong><br>
-        • <strong>der</strong> → oft männliche Dinge<br>
-        • <strong>die</strong> → oft weibliche Dinge<br>
-        • <strong>das</strong> → oft kleine/neutrale Dinge<br>
-        <br>Tipp: Lerne Artikel immer MIT dem Wort!
-      `
-    },
-    2: {
-      title: "Tipp für 2. Klasse ❓",
-      content: `
-        <strong>Fragewörter:</strong><br>
-        • <strong>Wer?</strong> → fragt nach Personen<br>
-        • <strong>Was?</strong> → fragt nach Dingen<br>
-        • <strong>Wo?</strong> → fragt nach Ort<br>
-        • <strong>Wann?</strong> → fragt nach Zeit
-      `
-    },
-    3: {
-      title: "Tipp für 3. Klasse 📐",
-      content: `
-        <strong>Die vier Fälle:</strong><br>
-        1. <strong>Nominativ</strong> (Wer/Was?) → Subjekt<br>
-        2. <strong>Genitiv</strong> (Wessen?) → Besitz<br>
-        3. <strong>Dativ</strong> (Wem?) → indirektes Objekt<br>
-        4. <strong>Akkusativ</strong> (Wen/Was?) → direktes Objekt
-      `
-    },
-    4: {
-      title: "Tipp für 4. Klasse 📖",
-      content: `
-        <strong>Satzbau Deutsch:</strong><br>
-        • Verb steht an <strong>2. Stelle</strong><br>
-        • Bei Fragen: Verb zuerst<br>
-        • Zeitangaben vor Ortsangaben<br>
-        <br><em>Beispiel: Ich gehe morgen ins Kino.</em>
-      `
-    }
-  };
-  
-  return hints[currentGrade] || hints[1];
-}
-
-function showProgressFeedback() {
-  let message = {
-    title: "Dein Fortschritt 📊",
-    content: ""
-  };
-  
-  if (totalTasks === 0) {
-    message.content = "Du hast noch keine Aufgabe gelöst. <strong>Starte jetzt!</strong> 🚀";
-  } else if (totalTasks < 10) {
-    message.content = `Du hast <strong>${totalTasks}</strong> Aufgaben gelöst! <br>Weiter so! Noch <strong>${10 - totalTasks}</strong> bis zur ersten Belohnung! 🎯`;
-  } else if (currentStreak >= 5) {
-    message.content = `<strong>Wow!</strong> 🔥 Du hast eine Serie von <strong>${currentStreak}</strong> richtigen Antworten! <br>Du bekommst jetzt doppelte Punkte!`;
-  } else {
-    message.content = `Super! Du hast schon <strong>${totalTasks}</strong> Aufgaben geschafft! <br>Dein Level: <strong>${userLevel}</strong> ⭐<br>Punkte: <strong>${points}</strong> 💰`;
-  }
-  
-  showHint(message.title, message.content);
-}
-
-function showLearningStrategy() {
-  const strategies = [
-    {
-      title: "Lern-Strategie 📚",
-      content: `
-        <strong>So lernst du am besten:</strong><br>
-        • Übe <strong>jeden Tag</strong> 5-10 Minuten<br>
-        • Sprich die Antworten <strong>laut aus</strong><br>
-        • Mach bei Fehlern <strong>kurze Pausen</strong><br>
-        • Feiere deine <strong>Erfolge</strong>! 🎉
-      `
-    },
-    {
-      title: "Lern-Tipp 💡",
-      content: `
-        <strong>Konzentration verbessern:</strong><br>
-        • Stelle dein Handy auf <strong>stumm</strong><br>
-        • Such dir einen <strong>ruhigen Ort</strong><br>
-        • Mach <strong>Pausen</strong> nach 20 Minuten<br>
-        • Trinke genug <strong>Wasser</strong> 💧
-      `
-    },
-    {
-      title: "Fehler? Kein Problem! ✨",
-      content: `
-        <strong>Aus Fehlern lernt man:</strong><br>
-        • Jeder Fehler ist eine <strong>Chance</strong><br>
-        • Lies die <strong>Erklärung</strong> aufmerksam<br>
-        • Versuch es <strong>nochmal</strong><br>
-        • <em>Du wirst besser mit jedem Versuch!</em> 💪
-      `
-    }
-  ];
-  
-  const strategy = pick(strategies);
-  showHint(strategy.title, strategy.content);
-}
-
-helpBtn.onclick = () => {
-  if (hintPanel.classList.contains('show')) {
-    closeHint();
-    return;
-  }
-  
-  // Close action menu
-  actionMenu.classList.remove('show');
-  
-  // Verschiedene Hilfe-Optionen basierend auf Situation
-  const randomChoice = Math.random();
-  
-  if (randomChoice < 0.4) {
-    // Kontextueller Tipp
-    const hint = getContextualHint();
-    showHint(hint.title, hint.content);
-  } else if (randomChoice < 0.7) {
-    // Fortschritt zeigen
-    showProgressFeedback();
-  } else {
-    // Lernstrategie
-    showLearningStrategy();
-  }
-};
-
-// Action Menu Functions
-function bibleoExplainTask() {
-  actionMenu.classList.remove('show');
-  
-  if (!currentTask) {
-    showHint("Keine Aufgabe aktiv", "Starte eine neue Aufgabe, dann kann ich sie dir erklären! 📝");
-    return;
-  }
-  
-  const explanations = {
-    "article": "Du sollst den richtigen <strong>Artikel</strong> (der, die, das) wählen. Tipp: Lerne Artikel immer MIT dem Wort!",
-    "question": "Du sollst das richtige <strong>Fragewort</strong> finden. Denk daran: Wer? (Person), Was? (Ding), Wo? (Ort), Wann? (Zeit)",
-    "case": "Du sollst den richtigen <strong>Fall</strong> erkennen. Die 4 Fälle: Nominativ (Wer?), Genitiv (Wessen?), Dativ (Wem?), Akkusativ (Wen?)",
-    "word": "Du sollst das passende <strong>Wort</strong> wählen. Lies die Frage genau und überlege, was Sinn ergibt.",
-    "sentence": "Du sollst den <strong>Satz</strong> richtig bilden. Achte auf die Reihenfolge: Subjekt - Verb - Objekt"
-  };
-  
-  const taskType = currentTask.type || "word";
-  const explanation = explanations[taskType] || "Lies die Aufgabe genau und überlege dir die Antwort. Du schaffst das! 💪";
-  
-  showHint("Aufgabe erklärt 💡", explanation);
-  bibleoSpeak("Ich erkläre dir die Aufgabe!", false);
-}
-
-function bibleoShowExample() {
-  actionMenu.classList.remove('show');
-  
-  if (!currentTask) {
-    showHint("Keine Aufgabe aktiv", "Starte eine neue Aufgabe, dann zeige ich dir ein Beispiel! 📝");
-    return;
-  }
-  
-  const examples = {
-    1: "<strong>Beispiel Artikel:</strong><br>der Hund (männlich)<br>die Katze (weiblich)<br>das Kind (neutral)",
-    2: "<strong>Beispiel Fragewörter:</strong><br>Wer ist das? → Die Lehrerin<br>Was machst du? → Ich lerne<br>Wo bist du? → In der Schule",
-    3: "<strong>Beispiel Fälle:</strong><br>Nominativ: <em>Der Hund</em> bellt.<br>Dativ: Ich gebe <em>dem Hund</em> Futter.<br>Akkusativ: Ich sehe <em>den Hund</em>.",
-    4: "<strong>Beispiel Satzbau:</strong><br>Ich <em>gehe</em> morgen ins Kino.<br>Morgen <em>gehe</em> ich ins Kino.<br>(Verb immer an 2. Stelle!)"
-  };
-  
-  const example = examples[currentGrade] || examples[1];
-  showHint("Beispiel 📝", example);
-  bibleoSpeak("Schau dir das Beispiel an!", false);
-}
-
-function bibleoAdjustDifficulty(direction) {
-  actionMenu.classList.remove('show');
-  
-  if (direction === 'easier') {
-    if (currentGrade > 1) {
-      currentGrade--;
-      gradeSelect.value = currentGrade;
-      applyGradeInfo();
-      renderTask();
-      showHint("Leichter! ⬇️", `Ich habe auf <strong>Klasse ${currentGrade}</strong> gewechselt. Die Aufgaben sind jetzt einfacher! 😊`);
-      bibleoSpeak("Okay, ich mache es leichter!", false);
-    } else {
-      showHint("Schon am leichtesten! 🎯", "Du bist bereits bei Klasse 1. Das ist das einfachste Level! Du schaffst das! 💪");
-    }
-  } else if (direction === 'harder') {
-    if (currentGrade < 4) {
-      currentGrade++;
-      gradeSelect.value = currentGrade;
-      applyGradeInfo();
-      renderTask();
-      showHint("Schwerer! ⬆️", `Ich habe auf <strong>Klasse ${currentGrade}</strong> gewechselt. Jetzt wird's herausfordernder! 🚀`);
-      bibleoSpeak("Okay, ich mache es schwerer!", false);
-    } else {
-      showHint("Schon am schwersten! 🏆", "Du bist bereits bei Klasse 4. Das ist das schwierigste Level! Du bist super! ⭐");
-    }
-  }
-}
-
-function bibleoSkipTask() {
-  actionMenu.classList.remove('show');
-  
-  if (!currentTask) {
-    showHint("Keine Aufgabe aktiv", "Starte erst eine Aufgabe! 🚀");
-    return;
-  }
-  
-  // Show explanation first
-  if (currentTask.exp) {
-    showHint("Aufgabe übersprungen ⏭️", `<strong>Erklärung:</strong><br>${currentTask.exp}<br><br>Nächste Aufgabe kommt gleich! 📝`);
-  } else {
-    showHint("Aufgabe übersprungen ⏭️", "Keine Sorge, die nächste Aufgabe wird besser! Weiter so! 💪");
-  }
-  
-  bibleoSpeak("Okay, nächste Aufgabe!", false);
-  
-  // Load new task after 2 seconds
-  setTimeout(() => {
-    renderTask();
-  }, 2000);
-}
-
-function toggleQuickStats() {
-  actionMenu.classList.remove('show');
-  
-  if (quickStats.classList.contains('show')) {
-    quickStats.classList.remove('show');
-    showHint("Statistik ausgeblendet", "Die Statistik ist jetzt versteckt. Klick wieder auf Bibleo → 📊 um sie anzuzeigen!");
-  } else {
-    updateQuickStats();
-    quickStats.classList.add('show');
-    showHint("Statistik eingeblendet 📊", "Die Statistik ist jetzt immer sichtbar! Du kannst sie jederzeit wieder ausblenden.");
-  }
-}
-
-function updateQuickStats() {
-  quickStreak.textContent = currentStreak;
-  quickLevel.textContent = userLevel;
-  quickTasks.textContent = totalTasks;
-}
-
-function showBadgeNotification() {
-  mascotBadge.classList.add('show');
-  setTimeout(() => {
-    mascotBadge.classList.remove('show');
-  }, 3000);
-}
 
 let kidVoice = null;
 function pickKidVoice() {
@@ -2684,7 +1691,7 @@ function speak(text) {
 
 speakQBtn.onclick = () => {
   if (currentTask && currentTask.q) {
-    bibleoSpeak(currentTask.q, true);
+    speak(currentTask.q);
   }
 };
 
@@ -2763,7 +1770,6 @@ function renderTask() {
         if (i === currentTask.correctIndex) {
           B.classList.add("correct");
           currentStreak++;
-          consecutiveWrong = 0; // Reset wrong answer counter
           
           let pointsEarned = 10;
           if (currentDifficulty === 'mittel') pointsEarned = 15;
@@ -2773,9 +1779,6 @@ function renderTask() {
           addPoints(pointsEarned);
           updateStats();
           checkBadges();
-          
-          // Bibleo feiert mit!
-          celebrateMascot();
           
           fb.className = "feedback success";
           const praise = pick(PRAISE_TEXTS) || "Toll!";
@@ -2789,10 +1792,6 @@ function renderTask() {
           B.classList.add("incorrect");
           currentStreak = 0;
           updateStats();
-          
-          // Bibleo ermutigt dich!
-          encourageMascot();
-          
           fb.className = "feedback error";
           const retry = pick(RETRY_TEXTS) || "Versuch's nochmal!";
           fb.textContent = retry;
@@ -2809,11 +1808,6 @@ loadProgress();
 applyGradeInfo();
 updateStats();
 nextBtn.onclick = renderTask;
-
-// Bibleo begrüßt dich
-setTimeout(() => {
-  showSpeechBubble("Hallo! Ich bin Bibleo, dein Lernbegleiter! 📚", 4000);
-}, 1000);
 </script>
 </body>
 </html>
